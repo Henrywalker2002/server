@@ -6,4 +6,6 @@ module.exports = function (app) {
         .post(accountCtrl.post)
     app.route('/checkAcc')
         .post(accountCtrl.check)
+    app.route('/')
+        .get(accountCtrl.get)
 }

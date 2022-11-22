@@ -22,5 +22,9 @@ module.exports = {
             listAcc.set(username, req.body.password)
             res.json({"result":"ok"})
         }
+    },
+
+    get: (res) => {
+        res.json("ok")
     }
 }
