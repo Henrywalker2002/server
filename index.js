@@ -4,7 +4,7 @@ const arrUser = []
 
 // begin api
 
-/* let express = require('express');
+let express = require('express');
 let app = express();
 let port = process.env.PORT || 5300;
 const bodyParser = require('body-parser')
@@ -20,7 +20,7 @@ app.use(function(req, res) {
 
 app.listen(port);
 
-console.log('RESTful API server started on: ' + port); */
+console.log('RESTful API server started on: ' + port);
 
 //end rest api
 
