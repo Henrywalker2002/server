@@ -24,7 +24,7 @@ module.exports = {
         }
     },
 
-    get: (res) => {
+    get: (req, res) => {
         res.json("ok")
     }
 }
