@@ -25,7 +25,7 @@ console.log('RESTful API server started on: ' + port); */
 //end rest api
 
 // socket
-io.on('connection', socket => {
+io.on('connection', async function(socket) {
     socket.on('signUp', user => {
         const isExist = arrUser.some(e => e.username == user.username)
         socket.peerId = user.peerId
