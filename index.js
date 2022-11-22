@@ -1,11 +1,17 @@
-var io = require('socket.io')(3000);
-
 const arrUser = []
 
 // begin api
 
 let express = require('express');
 let app = express();
+var server = require('https').createServer(app);
+
+var io = require('socket.io')(server, {
+    path: "/socket"
+})
+
+io.set('transports', ['websocket'])
+
 let port = process.env.PORT || 5300;
 const bodyParser = require('body-parser')
 
