@@ -24,13 +24,15 @@ console.log('RESTful API server started on: ' + port); */
 
 //end rest api
 
+let port = process.env.PORT || 5300;
+
 const arrUser = []
 
 var app = require('express')();
 var https = require('https').createServer(app);
 var io = require('socket.io')(https);
 
-https.listen(3000, function(){
+https.listen(port, function(){
     console.log('listening on *:3000');
 });
 
