@@ -29,11 +29,11 @@ let port = process.env.PORT || 5300;
 const arrUser = []
 
 var app = require('express')();
-var https = require('https').createServer(app);
-var io = require('socket.io')(https);
+var http = require('http').createServer(app);
+var io = require('socket.io')(http);
 
-https.listen(port, function(){
-    console.log('listening on *:3000');
+http.listen(port, function(){
+    console.log('listening on *' + port);
 });
 
 // socket
