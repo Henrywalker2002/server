@@ -28,7 +28,7 @@ console.log('RESTful API server started on: ' + port); */
 
 const arrUser = []
 
-var io = require('socket.io')(21000)
+// var io = require('socket.io')(3000)
 
 /* var app = require('express')();
 var https = require('http')
@@ -39,6 +39,20 @@ var io = new Server(server)
 server.listen(port, function(){
     console.log('listening on *' + port);
 }); */
+
+const http = require('http');
+const express = require('express');
+const socketio = require('socket.io');
+const cors = require('cors');
+
+const router = require('./api/routes');
+
+const app = express();
+const server = http.createServer(app);
+const io = socketio(server);
+
+app.use(cors());
+app.use(router);
 
 // socket
 io.on('connection', socket => {
@@ -59,3 +73,5 @@ io.on('connection', socket => {
         io.emit('dropUser', socket.peerId);
     })
 })
+
+server.listen(process.env.PORT || 5000, () => console.log(`Server has started.`));
