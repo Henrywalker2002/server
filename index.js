@@ -69,7 +69,7 @@ io.on('connection', socket => {
 
     socket.on('disconnect', () => {
         const index = arrUser.findIndex(user => user.peerId === socket.peerId)
-        arrUser.slice(index, 1)
+        arrUser.splice(index, 1)
         io.emit('dropUser', socket.peerId);
     })
 })
