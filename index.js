@@ -1,4 +1,6 @@
-const arrUser = []
+const io = require('socket.io')(process.env.PORT || 3000);
+
+/* const arrUser = []
 
 // begin api
 
@@ -26,7 +28,7 @@ app.use(function(req, res) {
 
 app.listen(port);
 
-console.log('RESTful API server started on: ' + port);
+console.log('RESTful API server started on: ' + port); */
 
 //end rest api
 
