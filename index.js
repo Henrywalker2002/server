@@ -27,10 +27,10 @@ console.log('RESTful API server started on: ' + port); */
 const arrUser = []
 
 var app = require('express')();
-var http = require('http').createServer(app);
-var io = require('socket.io')(http);
+var https = require('https').createServer(app);
+var io = require('socket.io')(https);
 
-http.listen(3000, function(){
+https.listen(3000, function(){
     console.log('listening on *:3000');
 });
 
