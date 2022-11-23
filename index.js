@@ -58,7 +58,8 @@ app.use(router);
 io.on('connection', socket => {
     socket.on('signUp', user => {
         const isExist = arrUser.some(e => e.username == user.username)
-        socket.peerId = user.peerId
+        socket.peerId = user.peerId;
+        console.log(user.username + socket.id)
         if (isExist) {
             return socket.emit('existence')
         }
@@ -68,9 +69,12 @@ io.on('connection', socket => {
     })
 
     socket.on('disconnect', () => {
-        const index = arrUser.findIndex(user => user.peerId === socket.peerId)
+        let index = arrUser.findIndex(user => user.peerId === socket.peerId);
+        console.log(index)
+        let user = arrUser[index]
         arrUser.splice(index, 1)
-        io.emit('dropUser', socket.peerId);
+        console.log(arrUser)
+        io.emit('dropUser', user);
     })
 })
 
