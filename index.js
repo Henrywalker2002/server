@@ -1,19 +1,11 @@
-const io = require('socket.io')(process.env.PORT || 3000);
+var io = require('socket.io')(3000);
 
-/* const arrUser = []
+const arrUser = []
 
 // begin api
 
 let express = require('express');
 let app = express();
-var server = require('https').createServer(app);
-
-var io = require('socket.io')(server, {
-    path: "/socket"
-})
-
-io.set('transports', ['websocket'])
-
 let port = process.env.PORT || 5300;
 const bodyParser = require('body-parser')
 
@@ -28,12 +20,12 @@ app.use(function(req, res) {
 
 app.listen(port);
 
-console.log('RESTful API server started on: ' + port); */
+console.log('RESTful API server started on: ' + port);
 
 //end rest api
 
 // socket
-io.on('connection', async function(socket) {
+io.on('connection', socket => {
     socket.on('signUp', user => {
         const isExist = arrUser.some(e => e.username == user.username)
         socket.peerId = user.peerId
