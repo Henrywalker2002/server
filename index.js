@@ -1,6 +1,6 @@
-var io = require('socket.io')(3000);
+/* var io = require('socket.io')(3000);
 
-const arrUser = []
+
 
 // begin api
 
@@ -20,9 +20,19 @@ app.use(function(req, res) {
 
 app.listen(port);
 
-console.log('RESTful API server started on: ' + port);
+console.log('RESTful API server started on: ' + port); */
 
 //end rest api
+
+const arrUser = []
+
+var app = require('express')();
+var http = require('http').createServer(app);
+var io = require('socket.io')(http);
+
+http.listen(3000, function(){
+    console.log('listening on *:3000');
+});
 
 // socket
 io.on('connection', socket => {
